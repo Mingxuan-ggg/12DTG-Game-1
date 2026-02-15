@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://4pqund3nukl7"]
 
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_0e48y"]
+[ext_resource type="Script" uid="uid://80kl10p8d3vr" path="res://player.gd" id="1_epypp"]
 [ext_resource type="Texture2D" uid="uid://httoncq5l2pp" path="res://spritesheet-tiles-default.png" id="1_wtcfe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
+size = Vector2(31, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0e48y"]
 texture = ExtResource("1_wtcfe")
@@ -190,7 +195,9 @@ texture_region_size = Vector2i(64, 64)
 1:10/0 = 0
 2:10/0 = 0
 3:10/0 = 0
+3:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 4:10/0 = 0
+4:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 5:10/0 = 0
 6:10/0 = 0
 7:10/0 = 0
@@ -333,13 +340,26 @@ texture_region_size = Vector2i(64, 64)
 
 [sub_resource type="TileSet" id="TileSet_epypp"]
 tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_0e48y")
 
 [node name="level" type="Node2D" unique_id=1884338669]
 
 [node name="player" type="CharacterBody2D" parent="." unique_id=1531656092]
+position = Vector2(190, 44)
+script = ExtResource("1_epypp")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="player" unique_id=1777392512]
+position = Vector2(0, 1.000001)
+scale = Vector2(0.25, 0.2578125)
+texture = ExtResource("1_0e48y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=1382505677]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_epypp")
+metadata/_edit_group_ = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1841177300]
+tile_map_data = PackedByteArray(0, 0, 2, 0, 1, 0, 0, 0, 3, 0, 10, 0, 0, 0, 3, 0, 1, 0, 0, 0, 4, 0, 10, 0, 0, 0)
 tile_set = SubResource("TileSet_epypp")
