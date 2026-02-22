@@ -1,9 +1,13 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+var SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-
+@export var speed_multiplier: float = 5
+@onready var effect_timer = $Dash_effect_time
+@onready var cooldown_timer = $Dash_cooldown_time
+var is_active := false
+var is_on_cooldown := false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -23,3 +27,30 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+func _input(event):
+	if event.is_action_pressed("Dash"):
+		print("Dash input is sucessful")
+		activate_buff()
+
+func activate_buff():
+	if is_active or is_on_cooldown:
+		return
+	else:
+		is_active = true
+		SPEED *= speed_multiplier
+		print("Speed is increased sucessful")
+		effect_timer.start()
+
+
+
+func _on_dash_effect_time_timeout() -> void:
+	print("Dash effect timer timeout")
+	SPEED = 300.0
+	is_active = false
+	is_on_cooldown = true
+	
+	cooldown_timer.start()
+
+
+func _on_dash_cooldown_time_timeout() -> void:
+	is_on_cooldown = false
