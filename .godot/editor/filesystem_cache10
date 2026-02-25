@@ -1,0 +1,6 @@
+63f7b34db8d8cdea90c76aacccf841ec
+::res://::1772049717
+dash_cooldown_time.gd::GDScript::1807898126062217203::1772049419::0::1::::<>Timer<><>0<>0<><>::
+dash_effect_time.gd::GDScript::249989858978247379::1772049419::0::1::::<>Timer<><>0<>0<><>::
+node_2d.tscn::PackedScene::2067450008304524526::1772049419::0::1::::<><><>0<>0<><>::uid://4q335xxs2p::::res://icon.svg<>uid://80kl10p8d3vr::::res://player.gd<>uid://httoncq5l2pp::::res://spritesheet-tiles-default.png<>uid://dtdkcx2l0wc6::::res://dash_effect_time.gd<>uid://00022uvso0c2::::res://dash_cooldown_time.gd
+player.gd::GDScript::2035731997253370311::1772049419::0::1::::<>CharacterBody2D<><>0<>0<><>::
