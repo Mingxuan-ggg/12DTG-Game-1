@@ -4,7 +4,7 @@ const JUMP_VELOCITY = -400.0
 @export var speed_multiplier: float = 5
 @onready var effect_timer = $Dash_effect_time
 @onready var cooldown_timer = $Dash_cooldown_time
-var respawn = Vector2(4100, -170)
+var respawn = Vector2(165, -28)
 var is_active := false
 var is_on_cooldown := false
 func _physics_process(delta: float) -> void:
@@ -19,7 +19,8 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction:
+	if direction !=0:
+		$Sprite2D.flip_h = direction >0
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
@@ -28,7 +29,7 @@ func _physics_process(delta: float) -> void:
 	if position.y >= 1000:
 		_respawn()
 func _respawn():
-	position = respawn
+	global_position = respawn
 func _input(event):
 	if event.is_action_pressed("Dash"):
 		print("Dash input is sucessful")
