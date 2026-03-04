@@ -56,5 +56,5 @@ func _on_dash_cooldown_time_timeout() -> void:
 
 func _on_checkpoint_1_area_entered(area: Area2D) -> void:
 	print("New checkpoint!")
-		respawn_x = 4775.0
-		respawn_y = 150.0
+	respawn_x = 4775.0
+	respawn_y = 150.0

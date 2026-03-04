@@ -504,7 +504,6 @@ position = Vector2(10, 253)
 [node name="player" type="CharacterBody2D" parent="." unique_id=1531656092]
 position = Vector2(204, 44)
 script = ExtResource("1_epypp")
-speed_multiplier = null
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="player" unique_id=1777392512]
