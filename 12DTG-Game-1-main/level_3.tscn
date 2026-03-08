@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://dhrlh58k2ijcx"]
 
 [ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_1fhj5"]
+[ext_resource type="Script" uid="uid://fb1qdloaotr2" path="res://player_level_3.gd" id="1_16pka"]
 [ext_resource type="Texture2D" uid="uid://httoncq5l2pp" path="res://spritesheet-tiles-default.png" id="2_16pka"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j8bo8"]
@@ -341,15 +342,16 @@ sources/0 = SubResource("TileSetAtlasSource_1jdk1")
 
 [node name="level 3" type="Node2D" unique_id=1653356197]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1049333804]
+[node name="Player_level3" type="CharacterBody2D" parent="." unique_id=1049333804]
+script = ExtResource("1_16pka")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=121313092]
+[node name="Sprite2D" type="Sprite2D" parent="Player_level3" unique_id=121313092]
 position = Vector2(-32.5, 32)
 scale = Vector2(0.4921875, 0.5)
 texture = ExtResource("1_1fhj5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=521521642]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player_level3" unique_id=521521642]
 position = Vector2(-32.5, 31.5)
 shape = SubResource("RectangleShape2D_j8bo8")
 
